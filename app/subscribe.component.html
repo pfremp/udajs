@@ -1,0 +1,29 @@
+
+
+
+<form action="">
+
+    
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input name="name" #name="ngModel" (change)="log(name)" type="text" id="name" class="form-control" required ngModel> 
+        <!-- Name Validation - Checks to see if name field has been touch and is NOT valid -->
+        <div *ngIf="name.touched && !name.valid" class="alert alert-danger">Name is required</div>
+        
+
+        <label for="email">Email</label>
+        <input name="email" #email="ngModel" (change)="log(email)" type="email" id="email" class="form-control" required ngModel>
+        <!-- Email Validation -->
+        <div *ngIf="email.touched && !email.valid" class="alert alert-danger">Email is Required</div>
+
+
+        <label for="frequency">Frequency</label>
+        <select name="frequency" #frequency="ngModel" (change)="log(frequency)" required ngModel>
+            <option ngControl="Daily" value="Daily">Daily</option>
+            <option ngControl="Weekly" value="Weekly">Weekly</option>
+            <option ngControl="Monthly" value="Monthly">Monthly</option>
+        </select>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
